@@ -24,8 +24,9 @@ In the workshop you give your branch its own Preview with a separate D1 database
 | --- | --- |
 | `src/` | The Worker and its HTML UI |
 | `migrations/` | Production schema and seed data, applied on deploy |
-| `preview-migrations/` | The Preview database's schema, seed rows, and a candidate schema change. Applied only through `wrangler.preview-migrations.jsonc` (created in the workshop), so it never reaches production. |
+| `preview-migrations/` | The Preview database's schema, seed rows, and a candidate schema change. Applied only through `wrangler.preview-migrations.jsonc`, so it never reaches production. |
 | `wrangler.json` | Production settings at the top level; Preview settings in the `previews` block |
+| `wrangler.preview-migrations.jsonc` | Migration-only `PREVIEW_DB` binding to `workshop-preview-db`; uses `preview-migrations/`, never production's `migrations/` |
 | `AGENTS.md` | Instructions for your coding agent: keep Preview settings in `previews`, never write to production data, test on the Preview URL, read the Preview's logs. `CLAUDE.md` points Claude Code at it. Copy it into your own repos. |
 | `.mcp.json`, `.cursor/`, `.vscode/`, `.codex/`, `opencode.json` | Connect Claude Code, Cursor, VS Code (Copilot), Codex, and OpenCode to the read-only [Workers Observability MCP server](https://github.com/cloudflare/mcp-server-cloudflare/tree/main/apps/workers-observability), so your agent can read your Preview's logs itself. Sign in with Cloudflare the first time your agent uses it. |
 
