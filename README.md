@@ -30,6 +30,8 @@ In the workshop you give your branch its own Preview with a separate D1 database
 | `AGENTS.md` | Instructions for your coding agent: keep Preview settings in `previews`, never write to production data, test on the Preview URL, read the Preview's logs. `CLAUDE.md` points Claude Code at it. Copy it into your own repos. |
 | `.mcp.json`, `.cursor/`, `.vscode/`, `.codex/`, `opencode.json` | Connect Claude Code, Cursor, VS Code (Copilot), Codex, and OpenCode to the read-only [Workers Observability MCP server](https://github.com/cloudflare/mcp-server-cloudflare/tree/main/apps/workers-observability), so your agent can read your Preview's logs itself. Sign in with Cloudflare the first time your agent uses it. |
 
+Listing and deleting entries use SQLite's `rowid`, which aliases the integer primary key in both the production (`id`) and candidate Preview (`activity_id`) schemas.
+
 ## Getting started
 
 Click **Deploy to Cloudflare** above. It creates a copy of this repo in your GitHub account, provisions a production D1 database, connects Workers Builds, and deploys. Keep the default names in the deploy form so the workshop steps match.
